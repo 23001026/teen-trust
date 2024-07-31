@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            /* Basic styling for demo purposes */
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                margin: 0;
+                padding: 0;
+            }
+            .container {
+                max-width: 600px;
+                margin: 20px auto;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            h1, h2, h3 {
+                color: #333;
+                text-align: center;
+            }
+            label {
+                display: block;
+                margin-bottom: 8px;
+            }
+            input[type="text"], input[type="number"] {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+            button {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            button:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Budgeting Tool</h1>
+            </header>
+            
+            <form id="budgetForm">
+                <label for="income">Monthly Income:</label>
+                <input type="text" id="income" name="income" placeholder="Enter your monthly income" required>
+                
+                <label for="expenses">Total Monthly Expenses:</label>
+                <input type="text" id="expenses" name="expenses" placeholder="Enter your total monthly expenses" required>
+                
+                <button type="submit">Calculate</button>
+            </form>
+            <a href="budgetingtool.html">Click here to go back to budgeting page</a>
+            
+            <div id="result" class="result">
+            </div>
+        </div>
+
+    <script>
+        document.getElementById('budgetForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var income = parseFloat(document.getElementById('income').value);
+            var expenses = parseFloat(document.getElementById('expenses').value);
+
+            var difference = income - expenses;
+
+            var resultElement = document.getElementById('result');
+            resultElement.innerHTML = '<h2>Budget Calculation Result</h2>' +
+                                      '<p>Monthly Income: $' + income.toFixed(2) + '</p>' +
+                                      '<p>Total Monthly Expenses: $' + expenses.toFixed(2) + '</p>' +
+                                      '<p><strong>Budget Surplus/Deficit: $' + difference.toFixed(2) + '</strong></p>';
+        });
+    </script>
+
+    </body>
+</html>

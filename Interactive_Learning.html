@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Learning for Youth Banking</title>
+    <link rel="stylesheet" href="Interactive_Learning.css">
+</head>
+<body>
+    <header>
+        <h1>Youth Banking Interactive Learning</h1>
+    </header>
+    <nav class="navbar navbar-expand-sm  text-light bg-light">
+      <div class="container-fluid">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+          <a class="navbar-brand" href="home.html">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="digital wallet functionalities.html" id="digital_wallet"> Digital Wallet Features</a>
+          </li>
+  
+    <div class="dropdown">
+      <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">
+              Tools
+      </button>
+        <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="education.html">Financial Education</a></li>
+              <li><a class="dropdown-item" href="budgetingtool 1.html">Budgeting tools</a></li>
+              <li><a class="dropdown-item" href="PControl 2.html">Parental Controls</a></li>
+              <li><a class="dropdown-item" href="Interactive_Learning.html">Interactive learning</a></li>
+              <li><hr class="dropdown-divider"></li>
+              
+            </ul>
+          </div>
+         
+        </li>
+      </ul>
+    </div>
+  </nav>
+    <main>
+        <section id="budgeting-game">
+            <h2>Budgeting Game</h2>
+            <p>Learn how to manage your money by playing this budgeting game.</p>
+            <div id="game"></div>
+            <button id="start-game-button" onclick="startGame()">Start Game</button>
+            <button id="try-again-button" style="display: none;" onclick="startGame()">Try Again</button>
+        </section>
+        <section id="financial-quiz">
+            <h2>Financial Quiz</h2>
+            <p>Test your knowledge with this financial quiz.</p>
+            <div id="quiz"></div>
+            <button id="start-quiz-button" onclick="startQuiz()">Start Quiz</button>
+            <button id="quiz-try-again-button" style="display: none;" onclick="startQuiz()">Try Again</button>
+        </section>
+    </main>
+    <script src="Interactive_Learning.js"></script>
+</body>
+</html>

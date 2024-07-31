@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Education for Young Customers</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .resources, .articles, .tutorials, .key-features {
+            margin-bottom: 20px;
+        }
+        .resources ul, .articles ul, .tutorials ul, .key-features ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .resources li, .articles li, .tutorials li, .key-features li {
+            background: white;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .dark-mode-toggle {
+            margin-bottom: 20px;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; 
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        .active-section {
+            background-color: #e0f7fa;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        .dark-mode header {
+            background-color: #333;
+        }
+        .dark-mode .resources li, 
+        .dark-mode .articles li, 
+        .dark-mode .tutorials li, 
+        .dark-mode .key-features li {
+            background: #555;
+            color: #fff;
+            border-color: #444;
+        }
+    </style>
+    <script>
+        function toggleVisibility(id) {
+            var section = document.getElementById(id);
+            if (section.style.display === "none") {
+                section.style.display = "block";
+            } else {
+                section.style.display = "none";
+            }
+        }
+
+        function searchContent() {
+            var input, filter, ul, li, i, txtValue;
+            input = document.getElementById('searchInput');
+            filter = input.value.toUpperCase();
+            ul = document.querySelectorAll('ul');
+            ul.forEach(function(list) {
+                li = list.getElementsByTagName('li');
+                for (i = 0; i < li.length; i++) {
+                    txtValue = li[i].textContent || li[i].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        li[i].style.display = "";
+                    } else {
+                        li[i].style.display = "none";
+                    }
+                }
+            });
+        }
+
+        function toggleDarkMode() {
+            var body = document.body;
+            body.classList.toggle('dark-mode');
+        }
+
+        function highlightSection(id) {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                section.classList.remove('active-section');
+            });
+            document.getElementById(id).parentElement.classList.add('active-section');
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var titles = document.querySelectorAll('.section-title');
+            titles.forEach(function(title) {
+                title.addEventListener('click', function() {
+                    highlightSection(title.getAttribute('onclick').split('\'')[1]);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm  text-light bg-light">
+        <div class="container-fluid">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="navbar-brand" href="home.html">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="digital wallet functionalities.html" id="digital_wallet"> Digital Wallet Features</a>
+            </li>
+    
+      <div class="dropdown">
+        <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">
+                Tools
+        </button>
+          <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="education.html">Financial Education</a></li>
+                <li><a class="dropdown-item" href="budgetingtool 1.html">Budgeting tools</a></li>
+                <li><a class="dropdown-item" href="PControl 2.html">Parental Controls</a></li>
+                <li><a class="dropdown-item" href="Interactive_Learning.html">Interactive learning</a></li>
+                <li><hr class="dropdown-divider"></li>
+                
+              </ul>
+            </div>
+           
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <header>
+        <h1>Financial Education for Young Customers</h1>
+    </header>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="searchInput" onkeyup="searchContent()" placeholder="Search for topics..">
+        </div>
+        <div class="dark-mode-toggle">
+            <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        </div>
+        <section class="key-features">
+            <h2 class="section-title" onclick="toggleVisibility('key-features-list')">Key Features of Financial Education</h2>
+            <ul id="key-features-list">
+                <li>Comprehensive guides on budgeting and saving.</li>
+                <li>Understanding and managing credit scores.</li>
+                <li>Tips and strategies for smart investing.</li>
+                <li>Managing and paying off student loans.</li>
+                <li>Setting and achieving financial goals.</li>
+                <li>Using technology and apps to manage finances.</li>
+                <li>Practical tutorials for real-life financial scenarios.</li>
+                <li>Up-to-date articles on financial trends and tips.</li>
+                <li>Interactive tools and resources for personalized advice.</li>
+            </ul>
+        </section>
+        <section class="resources">
+            <h2 class="section-title" onclick="toggleVisibility('resources-list')">Resources</h2>
+            <ul id="resources-list">
+                <li><strong>Beginner's Guide to Budgeting:</strong> Learn the basics of creating a budget, tracking your expenses, and managing your finances effectively.</li>
+                <li><strong>Understanding Credit Scores:</strong> An in-depth look at what credit scores are, how they are calculated, and why they are important for your financial health.</li>
+                <li><strong>How to Save Money:</strong> Practical tips and strategies to help you save money, build an emergency fund, and achieve your financial goals.</li>
+            </ul>
+        </section>
+        <section class="articles">
+            <h2 class="section-title" onclick="toggleVisibility('articles-list')">Articles</h2>
+            <ul id="articles-list">
+                <li><strong>Top 10 Financial Tips for Young Adults:</strong> Essential advice on managing money, avoiding debt, and building a strong financial foundation in your early years.</li>
+                <li><strong>Investing 101: A Beginner's Guide:</strong> An introduction to the basics of investing, different types of investments, and how to start investing wisely.</li>
+                <li><strong>How to Manage Student Loans:</strong> Guidance on understanding your student loans, repayment options, and strategies to pay off your debt faster.</li>
+            </ul>
+        </section>
+        <section class="tutorials">
+            <h2 class="section-title" onclick="toggleVisibility('tutorials-list')">Tutorials</h2>
+            <ul id="tutorials-list">
+                <li><strong>Creating a Monthly Budget:</strong> Step-by-step instructions on how to create and stick to a monthly budget that works for you.</li>
+                <li><strong>Using Financial Apps to Save Money:</strong> A guide to the best financial apps available, how to use them effectively, and how they can help you save money.</li>
+                <li><strong>Setting Financial Goals:</strong> Learn how to set realistic and achievable financial goals, and create a plan to reach them.</li>
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <p>© 2024 Financial Education. All rights reserved.</p>
+        <p><a href="#contact">Contact Us</a></p>
+    </footer>
+</body>
+</html>
